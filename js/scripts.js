@@ -28,3 +28,23 @@
 
 // //getElementById - OBSOLETO YA NO SE USA - Es obligatorio asignarle un ID al elemento HTML para llamarlo
 // const heading2 = document.getElementById("heading")
+
+
+
+// Crear contenido HTML
+
+const nuevoEnlace = document.createElement("A") // Método para crear un elemento/etiqueta nueva en el HTML, entre los () se coloca el nombre de la etiqueta tal como en HTML pero sin los <> y es altamente recomendado por JS utilizar mayúsculas. 
+console.log(nuevoEnlace) // Este enlace que creé está vacío, es decir, no tiene la propiedad href, una clase o un texto, etc. Por lo tanto se los voy a agregar.
+
+// Agregar el href
+nuevoEnlace.href = "nuevo-enlace.html"
+
+// Agregar el texto
+nuevoEnlace.textContent = "Tienda virtual"
+
+// Agregar una clase
+nuevoEnlace.classList.add("navegacion__enlace")
+
+// Agregar el enlace al HTML, para que se vea.
+const navegacion = document.querySelector(".navegacion") // Creo objeto "navegacion" seleccionando la clase .navegacion
+navegacion.appendChild(nuevoEnlace) // Agrego el elemento nuevoEnlace con el método appendChild 
