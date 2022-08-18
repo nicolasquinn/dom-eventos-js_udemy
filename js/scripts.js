@@ -115,12 +115,26 @@ const datos = {
 const nombre = document.querySelector("#nombre")
 const email = document.querySelector("#email")
 const mensaje = document.querySelector("#mensaje")
+const submitFormulario = document.querySelector(".formulario")
 
 nombre.addEventListener('input', registrarTexto)
 email.addEventListener('input', registrarTexto)
 mensaje.addEventListener('input', registrarTexto)
+submitFormulario.addEventListener('submit', function(evento) {
+    evento.preventDefault()
+    console.log("Enviaste el formulario")
+})
+
 
 function registrarTexto (evento) {
     datos[evento.target.id] = evento.target.value
     console.log(datos)
 }
+
+
+
+
+// Evento de submit
+// En los formularios siempre hay un input/button tipo submit. Por lo tanto, al seleccionar simplemente la clase .formulario e indicando que es un evento tipo 'submit'  ya estoy asociando directamente este al boton. JS NO recomienda usar el evento 'click' para enviar formularios, el estándar es submit.
+
+
