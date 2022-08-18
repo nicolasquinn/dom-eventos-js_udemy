@@ -31,20 +31,54 @@
 
 
 
+
 // Crear contenido HTML
 
-const nuevoEnlace = document.createElement("A") // Método para crear un elemento/etiqueta nueva en el HTML, entre los () se coloca el nombre de la etiqueta tal como en HTML pero sin los <> y es altamente recomendado por JS utilizar mayúsculas. 
-console.log(nuevoEnlace) // Este enlace que creé está vacío, es decir, no tiene la propiedad href, una clase o un texto, etc. Por lo tanto se los voy a agregar.
+// const nuevoEnlace = document.createElement("A") // Método para crear un elemento/etiqueta nueva en el HTML, entre los () se coloca el nombre de la etiqueta tal como en HTML pero sin los <> y es altamente recomendado por JS utilizar mayúsculas. 
+// console.log(nuevoEnlace) // Este enlace que creé está vacío, es decir, no tiene la propiedad href, una clase o un texto, etc. Por lo tanto se los voy a agregar.
 
-// Agregar el href
-nuevoEnlace.href = "nuevo-enlace.html"
+// // Agregar el href
+// nuevoEnlace.href = "nuevo-enlace.html"
 
-// Agregar el texto
-nuevoEnlace.textContent = "Tienda virtual"
+// // Agregar el texto
+// nuevoEnlace.textContent = "Tienda virtual"
 
-// Agregar una clase
-nuevoEnlace.classList.add("navegacion__enlace")
+// // Agregar una clase
+// nuevoEnlace.classList.add("navegacion__enlace")
 
-// Agregar el enlace al HTML, para que se vea.
-const navegacion = document.querySelector(".navegacion") // Creo objeto "navegacion" seleccionando la clase .navegacion
-navegacion.appendChild(nuevoEnlace) // Agrego el elemento nuevoEnlace con el método appendChild 
+// // Agregar el enlace al HTML, para que se vea.
+// const navegacion = document.querySelector(".navegacion") // Creo objeto "navegacion" seleccionando la clase .navegacion
+// navegacion.appendChild(nuevoEnlace) // Agrego el elemento nuevoEnlace con el método appendChild 
+
+
+
+
+// Eventos
+// Todos los sitios web están llenos de eventos, como un scroll, un click, cuando llenás un formulario, etc. Por ejemplo, crear una playlist en Spotify está lleno de eventos. Gracias a los elementos podemos crear páginas que reaccionen a las interacciones del usuario.
+// También hay eventos que suceden automáticamente en nuestra web, no necesariamente tienen que ser activados por el usuario.
+
+console.log(1)
+
+// El objeto window es "más alto" que el document, hace referencia a absolutamente TODO, no sólo al HTML como lo sería con document.
+// Se usa addEventListener como método para asociar un evento.
+// Uso 'load' para definir que este evento será una carga del objeto window, es decir, este evento se ejecutará cuando todo el window cargue. Carga todos los elementos JS y archivos que dependen del HTML, como imágenes o hojas de estilo(CSS) Está entre '' porque todos los eventos se definen dentro de estas.
+// Uso function como callback, es decir, cuando se ejecute 'load' ejecutá dicha función.
+window.addEventListener('load', function() {
+    console.log(2)
+})
+
+
+// El window.onload es básicamente lo mismo que lo de arriba sólo que con otra sintaxis. También acá aplico el callback "resumido".
+window.onload = loadCallback()
+
+// Puedo "resumir" el callback creando la función por apartado, esto es más que nada por si la función tiene bastante código.
+function loadCallback() {
+    console.log(3)
+}
+
+// En este caso uso como objeto document, ya que lo que voy a cargar es sólo la parte HTML. Como evento voy a cargar 'DOMContentLoaded', este evento (a diferencia de load) lo que hace es cargar única y exclusivamente SÓLO lo que es el contenido HTML. Ignora totalmente lo que son las imágenes u hojas de estilo. Por lo tanto, se va logear antes que el 'load' normal ya que carga más rápido.
+document.addEventListener('DOMContentLoaded', function() {
+    console.log(4)
+})
+
+console.log(5)
