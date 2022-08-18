@@ -89,17 +89,38 @@
 
 // Seleccionar elemento HTML y asociarle un evento
 
-const btnEnviar = document.querySelector(".boton--primario") // Selecciono el elemento boton--primario y lo almeceno en el objeto btnEnviar. Creo el parámetro "evento" para hacer referencia al evento que está pasando
-btnEnviar.addEventListener('click', function(evento) { 
-    console.log(evento) // Hago un print de qué es evento, en este caso va printear toda la información del tipo de evento 'click'
-    evento.preventDefault() // Prevengo/Cancelo la acción/evento por defecto que ocurre, en este caso prevengo el submit que hace el btnEnviar. Se usa mayormente para validar formularios.
-    console.log("Enviando formulario") // Hago un print de cuando lo clickee me envie un texto
-})
+// const btnEnviar = document.querySelector(".boton--primario") // Selecciono el elemento boton--primario y lo almeceno en el objeto btnEnviar. Creo el parámetro "evento" para hacer referencia al evento que está pasando
+// btnEnviar.addEventListener('click', function(evento) { 
+//     console.log(evento) // Hago un print de qué es evento, en este caso va printear toda la información del tipo de evento 'click'
+//     evento.preventDefault() // Prevengo/Cancelo la acción/evento por defecto que ocurre, en este caso prevengo el submit que hace el btnEnviar. Se usa mayormente para validar formularios.
+//     console.log("Enviando formulario") // Hago un print de cuando lo clickee me envie un texto
+// })
 
 // Otro ejemplo de porqué usar el parámetro evento/e/evt/event
+// window.onscroll = function(evento) {
+//     console.log(evento) // Cada vez que scrolle, es decir que ejecute el parámetro evento, va a hacer un print del tipo e información del evento.
+// }
 
-window.onscroll = function(evento) {
-    console.log(evento) // Cada vez que scrolle, es decir que ejecute el parámetro evento, va a hacer un print del tipo e información del evento.
+
+
+
+// Eventos de los inputs y textarea
+
+const datos = {
+    nombre: "",
+    email: "",
+    mensaje: ""
 }
 
+const nombre = document.querySelector("#nombre")
+const email = document.querySelector("#email")
+const mensaje = document.querySelector("#mensaje")
 
+nombre.addEventListener('input', registrarTexto)
+email.addEventListener('input', registrarTexto)
+mensaje.addEventListener('input', registrarTexto)
+
+function registrarTexto (evento) {
+    datos[evento.target.id] = evento.target.value
+    console.log(datos)
+}
